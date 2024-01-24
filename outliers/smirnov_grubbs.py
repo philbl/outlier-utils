@@ -107,7 +107,7 @@ class GrubbsTest:
         """
         target_index, value = self._target(data)
 
-        g = value / data.std()
+        g = value / data.std(ddof=1)
         g_test = self._get_g_test(data, alpha)
         return target_index if g > g_test else None
 
